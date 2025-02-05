@@ -1,0 +1,25 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is Namaste React by Aakansha Singh",
+  "main": "demo.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akansha8114/Namaste-React.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Aakansha Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akansha8114/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/akansha8114/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
