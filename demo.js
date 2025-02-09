@@ -1,8 +1,5 @@
-{/* <div id ='parent'>
-    <div id = "child">
-        <h1> Hello React</h1>
-    </div>
-</div> */}
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const parent = React.createElement("div", {id: "parent"},
      (React.createElement("div", {id: "child"},
@@ -11,12 +8,7 @@ const parent = React.createElement("div", {id: "parent"},
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
 
-{/* <div id ='parent'>
-    <div id = "child">
-        <h1> Hello React</h1>
-        <h2> Hello React</h2>
-    </div>
-</div> */}
+
 
 //if more than one 'h' tag in the same div use array to create more than one element 
 //in the same div
@@ -27,16 +19,6 @@ const parent2 = React.createElement("div", {id:"parent"},
     )
 )
 
-{/* <div id ='parent'>
-    <div id = "child">
-        <h1> Hello React</h1>
-        <h2> Hello React</h2>
-    </div>
-    <div id = "child2">
-        <h1> Hello React</h1>
-        <h2> Hello React</h2>
-    </div>
-</div> */}
 
 const parent3 = React.createElement("div", {id:"parent"},
     [React.createElement("div",{id:"child"},
