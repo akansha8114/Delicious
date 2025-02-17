@@ -1,4 +1,4 @@
-//Step 7 : Now lets make a component for Shimmer which will be display
+//Step 8 : Now lets make a component for Shimmer which will be display
 //on the screen while we are fetching the data from the api
 
 const Shimmer = () => {

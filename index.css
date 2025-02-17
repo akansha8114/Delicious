@@ -45,23 +45,16 @@
     cursor: pointer;
 }
 
-.body {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    padding: 10px;
+.filter-btn {
+   margin: 10px;
+   padding: 10px;
+   cursor: pointer;
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
 }
-
-/* .search { */
-    /* background-color: white; */
-    /* padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px; */
-/* } */
 
 .res-container {
     display: grid;
@@ -111,10 +104,22 @@
     border-radius: 10px;
 }
 
+
+
 .filter{
-    margin :10px;
-    cursor: pointer;
-    
+    display: flex;
+}
+
+.search{
+    margin-left: auto; /* Pushes the button to the right */
+    padding: 10px 20px; /* Adds padding inside the button */
+    margin-right: 20px; /* Adds space on the right side */
+    display: block; /* Ensures it takes full width if needed */
+
+}
+
+.filter-btn:hover {
+    background-color: #218838;
 }
 
 .shimmer-container {
@@ -147,5 +152,5 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
-    display: flex;
+    
 }
