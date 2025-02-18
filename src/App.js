@@ -7,6 +7,7 @@ import Body from "./components/Body.js";
 import About from "./components/About.js";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
+import RestaurantMenu from "./components/RestaurantMenu.js";
 
 //Step1 : Lets make a one top level component in which all component resides
 const AppLayout = () => {
@@ -49,6 +50,11 @@ const appRouter = createBrowserRouter([
         {
             path: "/contact",
             element: <Contact/>,
+        },
+        {
+            // Step 20 : in this we will give the dynamic path which will show on clicking any of the restaurant card
+            path : "/restaurants/:resId", //this resid is a dynamic id which will change according to the restaurant
+            element : <RestaurantMenu/>
         }
     ]
     },

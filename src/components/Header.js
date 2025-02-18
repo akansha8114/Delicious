@@ -18,7 +18,7 @@ const Header = ()=> {
                 </div>
                 {/* Step 18: use of Link tag which is same as the anchor tag but it is used for routing and avoids page refresh */}
                     <ul className='nav-items'>
-                    <li Link to = "/">Home</li>
+                    <li ><Link to = "/">Home</Link></li>
                     <li><Link to = "/about">About us</Link></li>
                     <li>
                         <Link to = "/contact">Contact Us</Link>
