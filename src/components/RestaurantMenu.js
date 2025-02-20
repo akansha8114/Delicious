@@ -12,34 +12,33 @@ const RestaurantMenu = () => {
     const [resInfo,setResInfo] = useState(null);
 
 
-    useEffect = (() => {
-        console.log("Use Effect Called");
+    useEffect(()=>{
         fetchMenu();
-    }, []);
+      },[])
 
     const fetchMenu = async () => {
         console.log("Fetching Menu...");
         const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5399515&lng=77.25915789999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5399515&lng=77.25915789999999&restaurantId=450016&catalog_qa=undefined&submitAction=ENTER"
         );
         const json = await data.json();
         console.log(json);
         setResInfo(json?.data);
     };
 
-   
 
     if(resInfo === null) return <Shimmer/>;
 
+    //const {name, cuisines,cloudinaryImageId,costForTwoMessage} = resInfo?.data?.cards[0]?.groupedCard?.cards[2]?.card?.card?.info;
+
     return (
         <div className = "menu">
-            <h1>{resInfo?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants}</h1>
-            <h2>Menu</h2>
-            <ul>
-                <li>Biryani</li>
-                <li>Burgers</li>
-                <li>Diet Coke</li>
-            </ul>
+            <h1></h1>
+            {/* <h2>{cuisines}</h2>
+            <h2>{cloudinaryImageId}</h2>
+            <h2>{costForTwoMessage}</h2> */} */
+            <h1>Menu</h1>
+            
         </div>
     )
 }
