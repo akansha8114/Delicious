@@ -2,6 +2,7 @@ import Restaurantcard from "./RestaurantCard";
 import resobj from "../utils/mockData";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 //Step 3: Now lets make a component for Body
 const Body = () => {
 
@@ -83,8 +84,13 @@ const Body = () => {
          </div>
          <div className = "res-container"> 
             {/* mapping means looping at each restaurant in the resobj one by one */}
-            {listofrestaurants.map((restaurant) => (
-              <Restaurantcard key ={restaurant?.info?.id} resdata = {restaurant}/> 
+            {filteredRestaurants.map((restaurant) => (
+              <Link
+                key ={restaurant?.info?.id} 
+                to ={"/restaurants/" + restaurant?.info?.id} > 
+                <Restaurantcard  resdata = {restaurant}/> 
+              </Link>
+
              ))} 
          </div>
 
