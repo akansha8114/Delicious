@@ -36,9 +36,9 @@ const Body = () => {
       console.log(json);
 
       //Now we wnat to update the data in the UI which we have fetched from the api call
-      setlistofrestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setlistofrestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       //Step 14 : updating filteredRestaurants also
-      setfilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setfilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
     //Step 7 : Now we have to check if the resobj is empty or not means if the data is fetched or not

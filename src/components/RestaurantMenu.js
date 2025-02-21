@@ -1,6 +1,10 @@
 import {useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 
+//this hook will help us to get the dynamic routing
+import { useParams } from "react-router-dom";
+import { Menu_API } from "../utils/contents";
+
 //Step 19 : Now lets make a component for RestaurantMenu which will display
 //  the menu of that restaurant 
 //want to achiev this with the help of dynamic routing 
@@ -11,16 +15,19 @@ const RestaurantMenu = () => {
 
     const [resInfo,setResInfo] = useState(null);
 
+    //Step 22 : Make a state variable to store the resId: in this we are extracting resid from the url
+    const { resId } = useParams();
+
 
     useEffect(()=>{
+        console.log("useEffect is rendering...");
         fetchMenu();
       },[])
 
+
     const fetchMenu = async () => {
         console.log("Fetching Menu...");
-        const data = await fetch(
-            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5399515&lng=77.25915789999999&restaurantId=450016&catalog_qa=undefined&submitAction=ENTER"
-        );
+        const data = await fetch( Menu_API + resId + "&catalog_qa=undefined&submitAction=ENTER");
         const json = await data.json();
         console.log(json);
         setResInfo(json?.data);
@@ -29,15 +36,27 @@ const RestaurantMenu = () => {
 
     if(resInfo === null) return <Shimmer/>;
 
-    //const {name, cuisines,cloudinaryImageId,costForTwoMessage} = resInfo?.data?.cards[0]?.groupedCard?.cards[2]?.card?.card?.info;
+    const { name, cuisines, costForTwoMessage } = resInfo?.cards?.[2]?.card?.card?.info || {};
+
+
+    //Step 20 : Now lets display the menu
+    const { itemCards } = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card || {};
+    console.log(itemCards);
+   
 
     return (
         <div className = "menu">
-            <h1></h1>
-            {/* <h2>{cuisines}</h2>
-            <h2>{cloudinaryImageId}</h2>
-            <h2>{costForTwoMessage}</h2> */} */
-            <h1>Menu</h1>
+            <h1>{name}</h1>
+            <h2>{cuisines.join(", ")}</h2>
+            <h2>{costForTwoMessage}</h2> 
+            {/* if i want to display the name of the item one by one then will right in this way */}
+            {/* <h1>{itemCards[0]?.card?.info?.name}</h1> */}
+            <ul>
+                {/* Step 21 : Now lets display the menu using iteration/mapping */}
+                {itemCards.map(item => (
+                   <li key = {item.card.info.id} >{item.card.info.name} - {item.card.info.price/100 || item.card.info.defaultPrice/100}</li>) || 
+                   (<li>Item is not available</li>))}
+            </ul>
             
         </div>
     )

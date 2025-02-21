@@ -16,6 +16,7 @@ const AppLayout = () => {
             {/* In our our app we will keep 
             Header,Body,Footer*/}
             <Header />
+            
             {/* Now we will push the children according to the their routes */}
             {/* Step 17 : Outlet is a component provided by react router dom used to push the children */}
             {/* This outlet will be filled with the children according to the path */}
@@ -49,6 +50,7 @@ const appRouter = createBrowserRouter([
         },
         {
             path: "/contact",
+            
             element: <Contact/>,
         },
         {
@@ -66,4 +68,4 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //Step 16 : Earlier we were using ReactDOM.render() but now we will use <RouterProvider> to render the routes
 root.render(<RouterProvider router={appRouter} />);
- 
+  
