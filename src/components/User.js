@@ -3,10 +3,10 @@
 
 //Step 24: First , we will create a User component using function based component
 
-const User = () =>{
+const User = ({name}) =>{
     return (
     <div className="user-card">
-        <h2>Name: Aakansha Singh</h2>
+        <h2>Name: {name}</h2>
         <h3>Role: Frontend Developer</h3>
         <h4>Location: Delhi</h4>
         <h4>Contact: akanshavgk2004@gmail.com</h4>
