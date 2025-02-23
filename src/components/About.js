@@ -6,8 +6,11 @@ const About = () => {
         <div>
             <h1>This is Namaste React Web Series</h1>
             <User name = {"Aakansha Singh"} />
-            <UserClass name = {"Aakansha Singh class"} />
+            <UserClass name = {"First child class"} />
+            
         </div>
     );
 };
 export default About;
+
+

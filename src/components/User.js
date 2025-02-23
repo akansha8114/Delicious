@@ -3,11 +3,28 @@
 
 //Step 24: First , we will create a User component using function based component
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 
 const User = ({name}) =>{
     const [count,setcount] = useState(0);
+
+   
+    useEffect(() => {
+         //this will start a time and will not stop after the switching the component also
+        const timer = setInterval(() => {
+            console.log("Use Effect is rendering...");
+        },1000);
+
+        //To stop a time we will clear the interval
+        //this return statement will be called when we will unmount the component
+        return () => {
+            
+            clearInterval(timer);
+            console.log("Use Effect is unmounting...");
+        };
+    },[]);
+
     return (
     <div className="user-card">
         <h1>Count: {count}</h1>

@@ -15,10 +15,32 @@ class UserClass extends React.Component{
         //5. Creating a state variable
         //it is a big large object which will store the data
         this.state = {
-            count: 0,
-            
-             //count2 : 2, //if i want to create another state variable 
+            //9. updating the json data on the web by using state varaible
+            userInfo :{
+                //Default data
+                name: "Dummy",
+                location : "delhi",
+                
+                
+
+            },
+            count : 0,
         };
+    }
+
+    //8 . this method will be called after the component is rendered.
+    //this method is used to make a API call bas uske aage 'async' call karenge
+    async componentDidMount(){
+        console.log(" Child component is Mounted");
+
+        const data = await fetch('https://api.github.com/users/akansha8114');
+        const json =  await data.json();
+        console.log(json);
+
+        //10. updating the state variable
+        this.setState({
+            userInfo : json,
+        });
     }
     //2.Now use render method which will return a jsx piece of code
     render(){
@@ -27,9 +49,10 @@ class UserClass extends React.Component{
         //3. Now return the jsx piece of code
         return(
            <div className="user-card">
+            {/* 6.calling the count state variable on the browser */}
               <h1>Count: {this.state.count}</h1>
 
-            {/* Updating the count on the browser using button  */}
+            {/* 7.Updating the count on the browser using button  */}
               <button 
                 onClick = {() => {
                    this.setState({
@@ -39,10 +62,14 @@ class UserClass extends React.Component{
                    });
                 }}>Click me
                </button>
+               <br/><br/>
 
-              <h2>Name: {this.props.name}</h2>
+               <img src= {this.state.userInfo.avatar_url}></img>
+
+              <h2>Name: {this.state.userInfo.name}</h2>
+
               <h3>Role: Frontend Developer</h3>
-              <h4>Location: Delhi</h4>
+              <h4>Location:{this.state.userInfo.location}</h4>
               <h4>Contact: akanshavgk2004@gmail.com</h4>
            </div>
         )
