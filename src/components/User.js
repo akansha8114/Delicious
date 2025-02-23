@@ -3,9 +3,15 @@
 
 //Step 24: First , we will create a User component using function based component
 
+import { useState } from "react";
+
+
 const User = ({name}) =>{
+    const [count,setcount] = useState(0);
     return (
     <div className="user-card">
+        <h1>Count: {count}</h1>
+        <button onClick={()=>{setcount(count + 1)}}>Click me</button>
         <h2>Name: {name}</h2>
         <h3>Role: Frontend Developer</h3>
         <h4>Location: Delhi</h4>
