@@ -1,4 +1,5 @@
 import Restaurantcard from "./RestaurantCard";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import resobj from "../utils/mockData";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -85,6 +86,7 @@ const Body = () => {
          <div className = "res-container"> 
             {/* mapping means looping at each restaurant in the resobj one by one */}
             {filteredRestaurants.map((restaurant) => (
+              //Step 23 : Make a link tag where on clicking the res card we can redirect to the res menu
               <Link
                 key ={restaurant?.info?.id} 
                 to ={"/restaurants/" + restaurant?.info?.id} > 
