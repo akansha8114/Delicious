@@ -3,36 +3,19 @@ import Shimmer from "./Shimmer";
 
 //this hook will help us to get the dynamic routing
 import { useParams } from "react-router-dom";
-import { Menu_API } from "../utils/contents";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+
 
 //Step 19 : Now lets make a component for RestaurantMenu which will display
 //  the menu of that restaurant 
 //want to achiev this with the help of dynamic routing 
 
 const RestaurantMenu = () => {
-    console.log("RestaurantMenu component is rendering...");
-
-
-    const [resInfo,setResInfo] = useState(null);
 
     //Step 22 : Make a state variable to store the resId: in this we are extracting resid from the url
     const { resId } = useParams();
-
-
-    useEffect(()=>{
-        console.log("useEffect is rendering...");
-        fetchMenu();
-      },[])
-
-
-    const fetchMenu = async () => {
-        console.log("Fetching Menu...");
-        const data = await fetch( Menu_API + resId + "&catalog_qa=undefined&submitAction=ENTER");
-        const json = await data.json();
-        console.log(json);
-        setResInfo(json?.data);
-    };
-
+    const resInfo = useRestaurantMenu(resId);
+    
 
     if(resInfo === null) return <Shimmer/>;
 
@@ -62,3 +45,4 @@ const RestaurantMenu = () => {
     )
 }
 export default RestaurantMenu;
+
