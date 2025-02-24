@@ -2,11 +2,15 @@ import {LOGO_URL} from "../utils/contents";
 import React from "/node_modules/react";
 import { useState } from "/node_modules/react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 //Step 2: Now lets make a component for Header:consistes Logo and NAv links
 const Header = ()=> {
 
     const [btnName, setbtnName] = useState("Login");
+
+    const onlineStatus = useOnlineStatus();
     return (
         <div className='header'>
             <div className="nav-container">
@@ -18,12 +22,16 @@ const Header = ()=> {
                 </div>
                 {/* Step 18: use of Link tag which is same as the anchor tag but it is used for routing and avoids page refresh */}
                     <ul className='nav-items'>
-                    <li ><Link to = "/">Home</Link></li>
-                    <li><Link to = "/about">About us</Link></li>
-                    <li>
-                        <Link to = "/contact">Contact Us</Link>
-                    </li>
-                    <li>Cart</li>
+                        <li>Online Status : {onlineStatus? "🟢" : "🔴"}</li>
+                       <li ><Link to = "/">Home</Link></li>
+                       <li><Link to = "/about">About us</Link></li>
+                       <li>
+                           <Link to = "/contact">Contact Us</Link>
+                        </li>
+                        <li>
+                            <Link to = "/grocery">Grocery</Link>
+                        </li>
+                       <li>Cart</li>
                 {/* step 9: create a login/logut button */}
                     <button className = "login" onClick = {() => {
                         btnName === "Login" ? setbtnName("Logout") : setbtnName("Login")}}

@@ -7,7 +7,7 @@ const useRestaurantMenu = (resId) => {
     //fetchdata
     useEffect(() => {
         fetchData();
-    })
+    },[])
 
     const fetchData = async () => {
         const data = await fetch(Menu_API + resId + "&catalog_qa=undefined&submitAction=ENTER");

@@ -4,6 +4,7 @@ import resobj from "../utils/mockData";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 //Step 3: Now lets make a component for Body
 const Body = () => {
 
@@ -42,6 +43,16 @@ const Body = () => {
       //Step 14 : updating filteredRestaurants also
       setfilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+
+    //Step 25: Now we will use useOnlineStatus hook to check if the user is online or not
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus === false) {
+      return (
+      <h1>Offline, please check your internet connection</h1>
+      );
+    };
+
+
 
     //Step 7 : Now we have to check if the resobj is empty or not means if the data is fetched or not
     //if not then this component will return the shimmer component

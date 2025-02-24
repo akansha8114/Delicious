@@ -1,5 +1,5 @@
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
-import React from "react";
+import React, {lazy,Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import '../index.css';
 import Header from "./components/Header.js";
@@ -8,9 +8,16 @@ import About from "./components/About.js";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
+import Shimmer from "./components/Shimmer.js";
 
+
+
+ //Step 26 : To do a lazy loading of the Grocery component import grocery component like this.
+ const Grocery = lazy(()=> import ("./components/Grocery.js"));
 //Step1 : Lets make a one top level component in which all component resides
 const AppLayout = () => {
+
+   
     return (
         <div className="app">
             {/* In our our app we will keep 
@@ -48,7 +55,7 @@ const appRouter = createBrowserRouter([
             path: "/about",
             element: <About/>,
         },
-        {
+        { 
             path: "/contact",
             
             element: <Contact/>,
@@ -57,6 +64,10 @@ const appRouter = createBrowserRouter([
             // Step 20 : in this we will give the dynamic path which will show on clicking any of the restaurant card
             path : "/restaurants/:resId", //this resid is a dynamic id which will change according to the restaurant
             element : <RestaurantMenu/>
+        },
+        {
+            path:"/grocery",
+            element :<Suspense fallback={<Shimmer/>}><Grocery/> </Suspense>
         }
     ]
     },
