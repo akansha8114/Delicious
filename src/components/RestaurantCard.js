@@ -16,4 +16,18 @@ const Restaurantcard = (props) => {
         </div>
     );
 };
+
+//Step 27: Higher order component -> input component - Restaurantcard output component - RestaurantcardPromoted
+export const withPromotedLabel = (Restaurantcard) => {
+    //return a component that is why wrote "() => {}"
+    return (props) => {
+        //And that component will return a piece of jsx
+        return(
+            <div>
+                <label>Promoted</label>
+                <Restaurantcard {...props}/>
+            </div>    
+        )
+    };
+};
 export default Restaurantcard;

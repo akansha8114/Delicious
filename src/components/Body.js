@@ -1,4 +1,4 @@
-import Restaurantcard from "./RestaurantCard";
+import Restaurantcard, {withPromotedLabel} from "./RestaurantCard";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import resobj from "../utils/mockData";
 import { useState,useEffect } from "react";
@@ -17,6 +17,9 @@ const Body = () => {
 
     //Step 13 : making the copy of listofrestaurants
     const [filteredRestaurants, setfilteredRestaurants] = useState([]);
+
+    //Step 28: storing a restaurant card with promoted label in this variable
+    const RestaurantcardPromoted = withPromotedLabel(Restaurantcard);
 
      
     //First argument is a call back function and second argument is an dependency array
@@ -101,6 +104,10 @@ const Body = () => {
               <Link
                 key ={restaurant?.info?.id} 
                 to ={"/restaurants/" + restaurant?.info?.id} > 
+
+                {/* Step 29 : if the restaurant is promoted then add a promoted label to it */}
+                restaurant.data.promoted ? (<RestaurantcardPromoted resdata = {restaurant}/> ):( <Restaurantcard resdata = {restaurant}/>)
+
                 <Restaurantcard  resdata = {restaurant}/> 
               </Link>
 
