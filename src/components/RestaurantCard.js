@@ -24,7 +24,7 @@ export const withPromotedLabel = (Restaurantcard) => {
         //And that component will return a piece of jsx
         return(
             <div>
-                <label>Promoted</label>
+                <label className="Promoted">Open</label>
                 <Restaurantcard {...props}/>
             </div>    
         )

@@ -258,6 +258,16 @@
   text-align: center;
 } 
 
+.Promoted{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0 0 0 5px;
+}
+
 
 
 
