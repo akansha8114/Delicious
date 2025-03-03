@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
     //Step 22 : Make a state variable to store the resId: in this we are extracting resid from the url
     const { resId } = useParams();
     const resInfo = useRestaurantMenu(resId);
-    
+    const [showIndex, setShowIndex] = useState(0);
 
     if(resInfo === null) return <Shimmer/>;
 
@@ -43,7 +43,10 @@ const RestaurantMenu = () => {
            {/* Step 31 : showing the categories item of menu with accordions */}
            {/* Mapping each categories with the help of map */}
            {categories.map((category, index) => (
-            ( <RestaurantCategory key={index} data={category?.card?.card} />)
+            ( <RestaurantCategory key={index} data={category?.card?.card}
+                showItems={index === showIndex ? true : false}
+                setShowIndex = {()=> setShowIndex(index)} 
+             />)
            ))}
                   
           

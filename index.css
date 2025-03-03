@@ -383,10 +383,10 @@
   font-weight: bold;
   color: #333;
   margin: 0;
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-}
+  text-overflow: ellipsis;*/
+} 
 
 /* Item Description */
 .ItemDescription p {

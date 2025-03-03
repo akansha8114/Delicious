@@ -1,19 +1,22 @@
 import ItemList from "./ItemList";
-import * as React from "react";
-import { useState } from "react";
+// import * as React from "react";
+
 
 // Step 32 : Building the accordian for each category
 
-const RestaurantCategory = ({ data }) => {
-    console.log("Received data:", data);
+const RestaurantCategory = ({ data,showItems,setShowIndex }) => {
 
-    // Step 34: Create a state variable and initialize it to false to hide items initially
-    const [showItems, setShowItems] = useState(false);
-
-    //Step 35 : this will handle the click whenever we will click on the header of the accordian it will toggle the items b/w shpwing and hiding
-    const handleClick = () => {
-        setShowItems(!showItems);
-    };
+/*************  ✨ Codeium Command ⭐  *************/
+    /**
+     * Handles the click event on the accordion header. This function is called
+     * whenever the user clicks on the header of the accordion.
+     * @function
+     */
+/******  793d654b-edde-4020-80db-91305ffa6dae  *******/
+    const handleClick = () =>{
+        setShowIndex();
+        
+    }
 
     return (
         <div className="accordion-container">
