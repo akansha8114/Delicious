@@ -22,6 +22,7 @@ const RestaurantMenu = () => {
 
     const { name, cuisines, costForTwoMessage } = resInfo?.cards?.[2]?.card?.card?.info || {};
 
+    
 
     //Step 20 : Now lets display the menu
     const { itemCards } = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card || {};
@@ -31,6 +32,8 @@ const RestaurantMenu = () => {
     const categories = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((c) => c.card?.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
     console.log("Categories",categories);
 
+   
+
     return (
         <div className = "menu">
             <h1>{name}</h1>
@@ -39,10 +42,13 @@ const RestaurantMenu = () => {
            
            {/* Step 31 : showing the categories item of menu with accordions */}
            {/* Mapping each categories with the help of map */}
-           {categories.map((category)=>{
-            <RestaurantCategory data={category?.card?.card}/>
-            
-            })}
+           {categories.map((category, index) => (
+            ( <RestaurantCategory key={index} data={category?.card?.card} />)
+           ))}
+                  
+          
+
+
             
         </div>
     )
