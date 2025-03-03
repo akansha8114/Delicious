@@ -18,16 +18,33 @@ const Restaurantcard = (props) => {
 };
 
 //Step 27: Higher order component -> input component - Restaurantcard output component - RestaurantcardPromoted
+// export const withPromotedLabel = (Restaurantcard) => {
+//     // const isOpen = props.resdata?.info?.availability?.opened;
+//     //return a component that is why wrote "() => {}"
+//     return (props) => {
+//         //And that component will return a piece of jsx
+//         return(
+//             <div>
+//                 <label className="Promoted">Open</label>
+//                 <Restaurantcard {...props}/>
+//             </div>    
+//         )
+//     };
+// };
+
 export const withPromotedLabel = (Restaurantcard) => {
-    //return a component that is why wrote "() => {}"
     return (props) => {
-        //And that component will return a piece of jsx
-        return(
-            <div>
-                <label className="Promoted">Open</label>
-                <Restaurantcard {...props}/>
-            </div>    
-        )
+      const isOpen = props.resdata?.info?.availability?.opened;
+  
+      return (
+        <div className="restaurant-card-container">
+          <div className="restaurant-card">
+            {/* Show Open label inside the card only if the restaurant is open */}
+            {isOpen && <label className="open-label">Open</label> }
+            <Restaurantcard {...props} />
+          </div>
+        </div>
+      );
     };
-};
+  };
 export default Restaurantcard;

@@ -101,14 +101,12 @@ const Body = () => {
             {/* mapping means looping at each restaurant in the resobj one by one */}
             {filteredRestaurants.map((restaurant) => (
               //Step 23 : Make a link tag where on clicking the res card we can redirect to the res menu
-              <Link
-                key ={restaurant?.info?.id} 
-                to ={"/restaurants/" + restaurant?.info?.id} > 
+              <Link key ={restaurant?.info?.id} to ={"/restaurants/" + restaurant?.info?.id} > 
 
                 {/* Step 29 : if the restaurant is promoted then add a promoted label to it */}
-                restaurant.info.isopen ? (<RestaurantcardPromoted resdata = {restaurant}/> ):( <Restaurantcard resdata = {restaurant}/>)
+                {restaurant?.info?.availability?.opened ? (<RestaurantcardPromoted resdata = {restaurant}/> ):( <Restaurantcard resdata = {restaurant}/>)}
 
-                <Restaurantcard  resdata = {restaurant}/> 
+                
               </Link>
 
              ))} 
