@@ -1,6 +1,7 @@
 import ItemList from "./ItemList";
-import React from "/node_modules/react";
-import { useState } from "/node_modules/react";
+import * as React from "react";
+import { useState } from "react";
+
 // Step 32 : Building the accordian for each category
 
 const RestaurantCategory = ({ data }) => {
