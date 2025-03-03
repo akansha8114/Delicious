@@ -1,14 +1,14 @@
 
 // Step 32 : Building the accordian for each category
-const RestaurantCategpry = (data) => {
-    console.log(data);
+const RestaurantCategory = ({data}) => {
+    console.log("Recived data",data);
     return(
         <div>
             {/* Accordian Header */}
-            
+            Hello
             {/* Accordian Body */}
         </div>
     )
 }
 
-export default RestaurantCategpry
+export default RestaurantCategory;

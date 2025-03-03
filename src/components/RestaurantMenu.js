@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 //this hook will help us to get the dynamic routing
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import RestaurantCategpry from "./RestaurantCategory";
+import RestaurantCategory from "./RestaurantCategory";
 
 
 //Step 19 : Now lets make a component for RestaurantMenu which will display
@@ -29,7 +29,7 @@ const RestaurantMenu = () => {
 
     //Step 30 : Want to show not only recommended items but all the categories.
     const categories = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((c) => c.card?.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-    console.log(categories);
+    console.log("Categories",categories);
 
     return (
         <div className = "menu">
@@ -40,9 +40,10 @@ const RestaurantMenu = () => {
            {/* Step 31 : showing the categories item of menu with accordions */}
            {/* Mapping each categories with the help of map */}
            {categories.map((category)=>{
-            <RestaurantCategpry data={category?.card?.card}/>
+            <RestaurantCategory data={category?.card?.card}/>
+            
             })}
-            <h3>heelooo</h3>
+            
         </div>
     )
 }
