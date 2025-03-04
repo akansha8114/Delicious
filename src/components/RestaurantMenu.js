@@ -17,6 +17,7 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
     const resInfo = useRestaurantMenu(resId);
     const [showIndex, setShowIndex] = useState(0);
+   
 
     if(resInfo === null) return <Shimmer/>;
 
@@ -44,8 +45,8 @@ const RestaurantMenu = () => {
            {/* Mapping each categories with the help of map */}
            {categories.map((category, index) => (
             ( <RestaurantCategory key={index} data={category?.card?.card}
-                showItems={index === showIndex ? true : false}
-                setShowIndex = {()=> setShowIndex(index)} 
+                showItems={index === showIndex ? true : false}  // Pass true if index matches showIndex
+                setShowIndex = {()=> setShowIndex(index===showIndex ? null : index)} //if the index pass is the same then just close the index otherwise open the index
              />)
            ))}
                   

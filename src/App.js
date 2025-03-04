@@ -9,6 +9,8 @@ import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import Shimmer from "./components/Shimmer.js";
+import UserContext from "./utils/UserContext.js";
+import { useState } from "react";
 
 
 
@@ -17,9 +19,13 @@ import Shimmer from "./components/Shimmer.js";
 //Step1 : Lets make a one top level component in which all component resides
 const AppLayout = () => {
 
+    const[userName,setUserName] = useState("Guest");
+
    
     return (
-        <div className="app">
+        // Step 35 : now with the help of the UserContextProvider we can access the context data through out the app and can pass new data also
+        <UserContext.Provider value = {{LoggedInUser:userName,setUserName}}>
+         <div className="app">
             {/* In our our app we will keep 
             Header,Body,Footer*/}
             <Header />
@@ -29,6 +35,7 @@ const AppLayout = () => {
             {/* This outlet will be filled with the children according to the path */}
             <Outlet />
         </div>
+        </UserContext.Provider>  
     );
 };
 //Step 15 : Now we will create routing configuration to develop routes

@@ -1,21 +1,16 @@
 import ItemList from "./ItemList";
 // import * as React from "react";
+import {useState} from "react";
 
 
 // Step 32 : Building the accordian for each category
 
 const RestaurantCategory = ({ data,showItems,setShowIndex }) => {
 
-/*************  ✨ Codeium Command ⭐  *************/
-    /**
-     * Handles the click event on the accordion header. This function is called
-     * whenever the user clicks on the header of the accordion.
-     * @function
-     */
-/******  793d654b-edde-4020-80db-91305ffa6dae  *******/
+    
+
     const handleClick = () =>{
-        setShowIndex();
-        
+        setShowIndex();      
     }
 
     return (

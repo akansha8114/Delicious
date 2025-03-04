@@ -1,10 +1,11 @@
 import Restaurantcard, {withPromotedLabel} from "./RestaurantCard";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import resobj from "../utils/mockData";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext, use } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 //Step 3: Now lets make a component for Body
 const Body = () => {
 
@@ -55,6 +56,8 @@ const Body = () => {
       );
     };
 
+    //step: 36 Now we want a input box and there we will write a USername and want it to set And be the context data
+    const{LoggedInUser,setUserName} = useContext(UserContext);
 
 
     //Step 7 : Now we have to check if the resobj is empty or not means if the data is fetched or not
@@ -96,6 +99,12 @@ const Body = () => {
              }
             }>
                 Top-Rated Restaurants</button>
+         </div>
+
+        {/* Step 37: Now we want to show the username and want to make input box that take our input for useName and change it everywhere */}
+         <div className = "search">
+          <label>UserName : </label><input type = "text" placeholder = "Enter your name" className = "search-box" value = {LoggedInUser} onChange = {(e) => {setUserName(e.target.value)}}></input>
+
          </div>
          <div className = "res-container"> 
             {/* mapping means looping at each restaurant in the resobj one by one */}
