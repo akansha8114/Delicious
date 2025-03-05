@@ -11,6 +11,8 @@ import RestaurantMenu from "./components/RestaurantMenu.js";
 import Shimmer from "./components/Shimmer.js";
 import UserContext from "./utils/UserContext.js";
 import { useState } from "react";
+import appStore from "./utils/appStore.js";
+import { Provider } from "react-redux";
 
 
 
@@ -23,6 +25,8 @@ const AppLayout = () => {
 
    
     return (
+        //Step 39 : Now we will provide the Redux store to the whole app
+        <Provider store={appStore}>
         // Step 35 : now with the help of the UserContextProvider we can access the context data through out the app and can pass new data also
         <UserContext.Provider value = {{LoggedInUser:userName,setUserName}}>
          <div className="app">
@@ -35,7 +39,8 @@ const AppLayout = () => {
             {/* This outlet will be filled with the children according to the path */}
             <Outlet />
         </div>
-        </UserContext.Provider>  
+        </UserContext.Provider> 
+        </Provider> 
     );
 };
 //Step 15 : Now we will create routing configuration to develop routes
