@@ -13,6 +13,7 @@ import UserContext from "./utils/UserContext.js";
 import { useState } from "react";
 import appStore from "./utils/appStore.js";
 import { Provider } from "react-redux";
+import Cart from "./components/Cart.js";
 
 
 
@@ -27,7 +28,7 @@ const AppLayout = () => {
     return (
         //Step 39 : Now we will provide the Redux store to the whole app
         <Provider store={appStore}>
-        // Step 35 : now with the help of the UserContextProvider we can access the context data through out the app and can pass new data also
+        {/* Step 35 : now with the help of the UserContextProvider we can access the context data through out the app and can pass new data also */}
         <UserContext.Provider value = {{LoggedInUser:userName,setUserName}}>
          <div className="app">
             {/* In our our app we will keep 
@@ -80,6 +81,10 @@ const appRouter = createBrowserRouter([
         {
             path:"/grocery",
             element :<Suspense fallback={<Shimmer/>}><Grocery/> </Suspense>
+        },
+        {
+            path:"/cart",
+            element: <Cart/>
         }
     ]
     },

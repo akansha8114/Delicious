@@ -4,6 +4,8 @@ import { useState,useContext } from "/node_modules/react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import Cart from "./Cart";
 
 
 //Step 2: Now lets make a component for Header:consistes Logo and NAv links
@@ -14,6 +16,9 @@ const Header = ()=> {
     const onlineStatus = useOnlineStatus();
 
     const data= useContext(UserContext);
+
+    //Step 42: Now we will use a useSelector hook to get the data from the store.useSelector is giving acccess to our store
+    const cartItems = useSelector((store) => store.cart.items);
 
     return (
         <div className='header'>
@@ -35,7 +40,7 @@ const Header = ()=> {
                         <li>
                             <Link to = "/grocery">Grocery</Link>
                         </li>
-                       <li>Cart</li>
+                       <li><Link to = "/cart">Cart({cartItems.length})</Link></li>
                 {/* step 9: create a login/logut button */}
                     <button className = "login" onClick = {() => {
                         btnName === "Login" ? setbtnName("Logout") : setbtnName("Login")}}
