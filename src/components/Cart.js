@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 const Cart = () =>{
     //Step 43: How will i get my data from the store to the cart ? with the help of selector
+    //Disclaimer : be careful while subscribing the specific portion of the store.
     const cartItems = useSelector((store) => store.cart.items);
 
     const dispatch = useDispatch();
