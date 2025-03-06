@@ -57,7 +57,6 @@ test("SHould render Header component with a Cart item = 0",() => {
 })
 
 
-
 //To test below test case we need to use fireEvent
 test("SHould change Login to logut button on click",() => {
     //Render the component on the JSDOM

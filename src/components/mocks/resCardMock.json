@@ -1,0 +1,93 @@
+{
+    "info": {
+        "id": "798296",
+        "name": "Louis Burger",
+        "cloudinaryImageId": "66b41728ef5b5eecbca92eb1609048a8",
+        "locality": "Lajpat Nagar",
+        "areaName": "DEFENCE COLONY",
+        "costForTwo": "₹600 for two",
+        "cuisines": [
+            "Burgers",
+            "American",
+            "Fast Food"
+        ],
+        "avgRating": 4.4,
+        "parentId": "22485",
+        "avgRatingString": "4.4",
+        "totalRatingsString": "1.1K+",
+        "sla": {
+            "deliveryTime": 35,
+            "lastMileTravel": 5.9,
+            "serviceability": "SERVICEABLE",
+            "slaString": "35-40 mins",
+            "lastMileTravelString": "5.9 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-03-07 04:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "newg.png",
+                    "description": "Gourmet"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "Gourmet",
+                                "imageId": "newg.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "30% OFF",
+            "subHeader": "UPTO ₹100"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-8dce8ce5-96a4-4ef5-be4b-a6d5954c55cb"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/delhi/louis-burger-lajpat-nagar-defence-colony-rest798296",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

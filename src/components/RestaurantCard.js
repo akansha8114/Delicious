@@ -2,6 +2,7 @@ import {CDN_URL} from "../utils/contents";
 //Step 4 : component of Restaurant card:So that we can use the template again & again
 const Restaurantcard = (props) => {
     const {resdata} = props;
+    console.log(resdata);
     const {cloudinaryImageId,name,avgRating,cuisines,costForTwo,deliveryTime} = resdata?.info;  
     return (
         <div className = "res-card">
