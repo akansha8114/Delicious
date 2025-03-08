@@ -98,10 +98,10 @@ const Body = () => {
          </div>
 
         {/* Step 37: Now we want to show the username and want to make input box that take our input for useName and change it everywhere */}
-         <div className = "search">
+         {/* <div className = "search">
           <label>UserName : </label><input type = "text" placeholder = "Enter your name" className = "search-box" value = {LoggedInUser} onChange = {(e) => {setUserName(e.target.value)}}></input>
 
-         </div>
+         </div> */}
          <div className = "res-container"> 
             {/* mapping means looping at each restaurant in the resobj one by one */}
             {filteredRestaurants.map((restaurant) => (
