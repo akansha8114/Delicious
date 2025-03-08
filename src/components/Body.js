@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import resobj from "../utils/mockData";
 import { useState,useEffect,useContext, use } from "react";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
+
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 //Step 3: Now lets make a component for Body
@@ -63,19 +63,15 @@ const Body = () => {
     //Step 7 : Now we have to check if the resobj is empty or not means if the data is fetched or not
     //if not then this component will return the shimmer component
     //The below function is known as conditional rendering
-    if(listofrestaurants.length === 0){
-      return <Shimmer/>;
-    }
-
-    return(
-
+    return (listofrestaurants.length === 0) ? (<Shimmer/>) : 
+    (
       <div className = "body">
          <div className = "filter">
           {/* Step 10: Make a search bar */}
           {/* onChange handler update the input text on the UI on every keystroke/updates
           the search text */}
           <div className="search">
-            <input type = "text" placeholder = "Search" className = "search-box"
+            <input data-testid = "searchInput" type = "text" placeholder = "Search" className = "search-box"
              value = {searchText} onChange = {(e) => {
               setSearchText(e.target.value);
              }}>
@@ -95,7 +91,7 @@ const Body = () => {
                  const filterlist = listofrestaurants.filter((res) => res?.info?.avgRating > 4.4);
                  console.log(filterlist);
                  //update the resobj with setresobj
-                 setlistofrestaurants(filterlist);
+                 setfilteredRestaurants(filterlist);
              }
             }>
                 Top-Rated Restaurants</button>

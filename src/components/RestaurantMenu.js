@@ -1,4 +1,4 @@
-import {useState,useEffect } from "react";
+import {useState } from "react";
 import Shimmer from "./Shimmer";
 
 //this hook will help us to get the dynamic routing

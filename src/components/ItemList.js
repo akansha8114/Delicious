@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {addItem} from "../utils/cartSlice";
 
 
-const ItemList = ({ items }) => {
+const ItemList = ({ items, dummy }) => {
 
   const dispatch = useDispatch();
 
@@ -15,12 +15,12 @@ const ItemList = ({ items }) => {
     // whatever we pass in an addItem as an argument it will pass a payload and passes as a second argument in a addItem action
     //action.payload = " " -> whatever passed in an argument of addItem will be passed as a payload
 
-  }
+  };
   return (
     <div className="ItemList">
       {items.map((item) => (
-        <div key={item.card.info.id} className="Item ItemCard">
-          <div className="ItemContent">
+        <div   data-testid="food-item" key={item.card.info.id} className="Item ItemCard">
+          <div  className="ItemContent">
             <span className="ItemName">{item.card.info.name}</span>
             <span className="ItemPrice">
               ₹ {item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100}
@@ -30,7 +30,7 @@ const ItemList = ({ items }) => {
             <p>{item.card.info.description}</p>
           </div>
           <div className="ItemActions">
-            <button className="Addbtn" onClick={() => handleAddItem(item)}>Add +</button>
+            <button className="Addbtn" aria-label="Add item to cart"  onClick={() => handleAddItem(item)}>Add +</button>
             <img className="img" src={CDN_URL + item.card.info.imageId} alt={item.card.info.name} />
           </div>
         </div>
