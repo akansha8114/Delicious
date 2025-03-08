@@ -34,7 +34,7 @@ const Body = () => {
     const fetchData = async() => {
       const data = await fetch(
         //URL of the site which we want to fetch data from
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5399515&lng=77.25915789999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5399515&lng=77.25915789999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
 
       //Now once we have data we have to convert this data into JSON
